@@ -7,30 +7,30 @@ This project transforms your TTGO T-Display ESP32 into a vibrant real-time dashb
 
 ---
 
-## 🚀 Features
+##  Features
 
 - **Live Weather Display** (via OpenWeatherMap API):
-  - 🌡️ Temperature (color-coded)
-  - 💧 Humidity
-  - 🌬️ Wind speed + direction
-  - 📈 Pressure
-  - 🌅 Sunrise / 🌇 Sunset
+  -  Temperature (color-coded)
+  -  Humidity
+  -  Wind speed + direction
+  -  Pressure
+  -  Sunrise /  Sunset
 - **NTP Clock** synced to Indian Standard Time (IST)
 - **Spotify Now Playing / Last Played** (via Spotify Web API):
-  - 🎶 Song Title
-  - 🧑‍🎤 Artist
-  - 💼 Album
-  - ♻️ Refresh Token Authentication
+  -  Song Title
+  -  Artist
+  -  Album
+  -  Refresh Token Authentication
 - **Live F1 Driver Standings** (via Ergast API):
-  - 🏎️ Top 10 drivers
-  - 🎨 Color-coded by constructor
+  -  Top 10 drivers
+  -  Color-coded by constructor
 - **Button Navigation**:
   - Button 1: Toggle Weather ↔ Spotify
   - Button 2: Show F1 Standings
 
 ---
 
-## 🛠️ Requirements
+##  Requirements
 
 ### Hardware
 - TTGO T-Display ESP32
@@ -51,7 +51,7 @@ Install these libraries via the Arduino Library Manager:
 
 ---
 
-## 📦 Setup Instructions
+##  Setup Instructions
 
 1. Clone or download this repo.
 2. Open the desired `.ino` file:
@@ -84,7 +84,7 @@ String spotifyClientSecret = "YourClientSecret";
 
 ---
 
-## 💽 Screen Layout
+##  Screen Layout
 
 ### Weather View
 ```
@@ -123,7 +123,7 @@ String spotifyClientSecret = "YourClientSecret";
 
 ---
 
-## ⏱️ Refresh Rates
+##  Refresh Rates
 
 - **Weather Data**: Every 5 minutes (300,000 ms)
 - **Clock Update**: Every 1 minute (60,000 ms)
@@ -132,7 +132,7 @@ String spotifyClientSecret = "YourClientSecret";
 
 ---
 
-## ✅ To-Do List
+##  To-Do List
 
 - [x] Weather + Clock Display
 - [x] Button toggle between views
@@ -143,7 +143,7 @@ String spotifyClientSecret = "YourClientSecret";
 
 ---
 
-## 👤 Author
+##  Author
 
 **Nikhil Nair**  
 🌐 [nikhilnair.works](https://nikhilnair.works)  
