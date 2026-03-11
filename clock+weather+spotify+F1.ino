@@ -45,9 +45,9 @@ const unsigned long clockUpdateInterval = 60000;
 time_t sunrise = 0, sunset = 0;
 
 bool isPlaying = false;
-String trackTitle = "Unknown Title";
-String artistName = "Unknown Artist";
-String albumName = "Unknown Album";
+String trackTitle = "Loading Title...";
+String artistName = "Loading Artist...";
+String albumName = "Loading Album...";
 
 String driverCodes[10], constructorIds[10], driverPoints[10];
 
@@ -83,16 +83,18 @@ uint16_t getWeatherColor(String description) {
 
 uint16_t getTeamColor(String constructorId) {
   constructorId.toLowerCase();
-  if (constructorId == "red_bull") return TFT_BLUE;
+  if (constructorId == "red_bull") return TFT_NAVY;
   if (constructorId == "ferrari") return TFT_RED;
   if (constructorId == "mclaren") return TFT_ORANGE;
   if (constructorId == "mercedes") return TFT_CYAN;
   if (constructorId == "rb") return TFT_WHITE;
   if (constructorId == "alpine") return TFT_PINK;
-  if (constructorId == "williams") return TFT_NAVY;
+  if (constructorId == "williams") return TFT_BLUE;
   if (constructorId == "aston_martin") return TFT_GREEN;
-  if (constructorId == "kick_sauber" || constructorId == "sauber") return TFT_YELLOW;
-  return TFT_LIGHTGREY;
+  if (constructorId == "audi") return TFT_SILVER;
+  if (constructorId == "cadillac") return  TFT_LIGHTGREY;
+  if (constructorId == "haas") return TFT_YELLOW;
+  return TFT_YELLOW;
 }
 
 void connectWiFi() {
@@ -262,7 +264,7 @@ void drawF1Screen() {
   tft.fillScreen(TFT_BLACK);
   tft.setTextDatum(TL_DATUM);
   tft.setTextColor(TFT_WHITE);
-  tft.drawString("Top 10 F1 Drivers - 2025", 10, 5, 2);
+  tft.drawString("Top 10 F1 Drivers - Current Season", 10, 5, 2);
   for (int i = 0; i < 10; i++) {
     tft.setTextColor(getTeamColor(constructorIds[i]));
     tft.drawString(String(i + 1) + ". " + driverCodes[i] + " - " + driverPoints[i] + " pts", 10, 25 + i * 11, 2);
@@ -274,7 +276,7 @@ void buttonHandler(Button2& btn) {
     currentScreen = (currentScreen == WEATHER_SCREEN) ? SPOTIFY_SCREEN : WEATHER_SCREEN;
     redraw = true;
   } else if (btn.getPin() == BUTTON_2 && btn.wasPressed()) {
-    currentScreen = F1_SCREEN;
+    currentScreen = (currentScreen == WEATHER_SCREEN) ? F1_SCREEN : WEATHER_SCREEN;
     redraw = true;
   }
 }
